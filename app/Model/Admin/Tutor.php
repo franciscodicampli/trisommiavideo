@@ -25,7 +25,7 @@ class Tutor extends Model
 
     public function localidad()
     {
-        return $this->belongsTo('App\Localidad');
+        return $this->belongsTo('App\Location');
     }
 
     public function obrasocial()

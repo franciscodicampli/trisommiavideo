@@ -61,11 +61,12 @@
                                                     <td>Ramirez</td>
                                                     <td>
                                                         <div class="button-group">
-                                                            <form action="" method="POST">
+                                                            <form action="{{ route('censado.destroy', $registered->id) }}" method="POST">
                                                             @csrf
-                                                            {{-- @method('DELETE') --}}
-                                                            <button type="submit" class="btn btn-danger  btn-sm">ELIMINAR</button>
-                                                            <a href="" class="btn btn-primary  btn-sm">EDITAR</a>
+                                                            @method('DELETE')
+
+                                                            <button type="submit" class="btn btn-outline-danger btn-sm mr-1" onclick="return confirm('¿Seguro desea borrar el censado?')"><i class="fa fa-trash"></i></button>
+                                                            <a href="" class="btn btn-outline-primary  btn-sm"><i class="fa fa-edit"></i></a>
                                                             </form>
                                                         </div>
                                                     </td>

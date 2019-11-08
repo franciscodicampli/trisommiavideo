@@ -89,15 +89,15 @@
                                                         </span>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="option1">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio1" value="Masculino">
                                                         <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio2" value="option2">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio2" value="Femenino">
                                                         <label class="form-check-label" for="inlineRadio2">Femenino</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio3" value="option3">
+                                                        <input class="form-check-input" type="radio" name="sexo" id="inlineRadio3" value="Otro">
                                                         <label class="form-check-label" for="inlineRadio3">Otro</label>
                                                     </div>
                                                 </div>
@@ -114,11 +114,11 @@
                                                     </div>
                                                     <select class="custom-select" id="" name="estadocivil">
                                                         <option selected>Seleccione</option>
-                                                        <option value="1">Soltero</option>
-                                                        <option value="2">En Relación</option>
-                                                        <option value="3">Casado</option>
-                                                        <option value="4">Divorciado</option>
-                                                        <option value="5">Viudo</option>
+                                                        <option value="Soltero">Soltero</option>
+                                                        <option value="En Relación">En Relación</option>
+                                                        <option value="Casado">Casado</option>
+                                                        <option value="Divorciado">Divorciado</option>
+                                                        <option value="Viudo">Viudo</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -170,10 +170,9 @@
                                                     </div>
                                                     <select class="custom-select" id="" name="situacionresidencial_id">
                                                         <option selected>Seleccione una opción</option>
-                                                        <option value="1">Vivienda familiar</option>
-                                                        <option value="2">Hogar de menores/orfanato</option>
-                                                        <option value="3">Hogar de adultos mayores</option>
-                                                        <option value="4">Situación de calle</option>
+                                                        @foreach ($residences as $residence )
+                                                            <option value="{{ $residence->id }}">{{ $residence->situacionresidencial }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -232,14 +231,14 @@
                                                     </div>
                                                     <select class="custom-select" id="" name="formacionescolar">
                                                         <option selected>Seleccione una opción</option>
-                                                        <option value="1">Jardín de Infantes</option>
-                                                        <option value="2">Primario Completo</option>
-                                                        <option value="3">Primario Incompleto</option>
-                                                        <option value="4">Secundario Completo</option>
-                                                        <option value="5">Secundario Incompleto</option>
-                                                        <option value="6">Terciario/Universitario Completo</option>
-                                                        <option value="7">Terciario/Universitario Incompleto</option>
-                                                        <option value="8">No posee formación escolar</option>
+                                                        <option value="Jardín de Infantes">Jardín de Infantes</option>
+                                                        <option value="Primario Completo">Primario Completo</option>
+                                                        <option value="Primario Incompleto">Primario Incompleto</option>
+                                                        <option value="Secundario Completo">Secundario Completo</option>
+                                                        <option value="Secundario Incompleto">Secundario Incompleto</option>
+                                                        <option value="Terciario/Universitario Completo">Terciario/Universitario Completo</option>
+                                                        <option value="Terciario/Universitario Incompleto">Terciario/Universitario Incompleto</option>
+                                                        <option value="No posee formación escolar">No posee formación escolar</option>
                                                     </select>
                                                 </div>
                                             </div>

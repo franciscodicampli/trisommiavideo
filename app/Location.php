@@ -13,6 +13,11 @@ class Location extends Model
         return $this->hasMany('App\Registered');
     }
 
+    public function tutors()
+    {
+        return $this->hasMany('App\Tutor');
+    }
+
     public function volunteers()
     {
         return $this->hasMany('App\Registered');
