@@ -69,4 +69,28 @@ class Registered extends Model
     {
         return $this->belongsToMany('App\Treatment');
     }
+
+
+    //query scope
+    public function scopeDni($query, $dni)
+    {
+        if ($dni) {
+            return $query->where('dni', 'LIKE', '%' . $dni . '%');
+        }
+    }
+
+    public function scopeApellido($query, $apellido)
+    {
+        if ($apellido) {
+            return $query->where('apellido', 'LIKE', '%' . $apellido . '%')
+            ->orWhere('nombre', 'LIKE', '%' . $apellido . '%');
+        }
+    }
+
+    public function scopeLegajo($query, $legajo)
+    {
+        if ($legajo) {
+            return $query->where('legajo', 'LIKE', '%' . $legajo . '%');
+        }
+    }
 }

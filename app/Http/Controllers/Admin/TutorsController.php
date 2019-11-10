@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 namespace App\Http\Controllers\Admin;
 
+use App\Healthinsurance;
 use App\Tutor;
+use App\Location;
 use App\Registered;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,8 +19,10 @@ class TutorsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {
+        $tutores = Tutor::paginate(10);
 
+        return view('admin.censo.listartutores', compact('tutores'));
     }
 
     /**
@@ -28,7 +32,10 @@ class TutorsController extends Controller
      */
     public function create()
     {
-        //
+        $localidades = Location::all();
+        $healthinsurances = Healthinsurance::all();
+
+        return view('admin.censo.createtutor', compact('localidades', 'healthinsurances'));
     }
 
     /**
@@ -39,7 +46,6 @@ class TutorsController extends Controller
      */
     public function store(Request $request)
     {
-
         $tutor = new Tutor();
 
         $tutor->apellido = $request->apellido;
@@ -58,9 +64,11 @@ class TutorsController extends Controller
         $tutor->observacion = $request->observacion;
         $tutor->save();
 
-        $tutor->registereds()->attach($request->registered_id);
+        // $tutor->registereds()->attach($request->registered_id);
 
-        return back();
+        toastr()->success('Se ha creado correctamente el tutor', 'Éxito');
+
+        return redirect()->route('tutor.show', $tutor->id);
     }
 
     public function asignarTutorACensado(Request $request)
@@ -80,7 +88,15 @@ class TutorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($tutor, $censado)
+    public function show($id)
+    {
+        $tutor = Tutor::find($id);
+
+        return view('admin.censo.showtutor', compact('tutor'));
+    }
+
+    //metodo ver tutor y volver al censado asignado
+    public function verTutor($tutor, $censado)
     {
         $tutor = Tutor::find($tutor);
 
@@ -118,7 +134,7 @@ class TutorsController extends Controller
      */
     public function destroy($id)
     {
-        //ESTE METODO NO ESTA LISTO NI FUNCIONANDO
+        //eliminar permaentemente el tutor
         $tutor = tutor::find($id);
         $censados = $tutor->registereds;
 
@@ -126,7 +142,9 @@ class TutorsController extends Controller
             $tutor->registereds()->detach($censado->id);
         }
 
-        // $tutor->delete();
+        $tutor->delete();
+
+        toastr()->success('Se ha eliminado correctamente el tutor', 'Éxito');
 
         return back();
     }

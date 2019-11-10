@@ -8,7 +8,7 @@
                 <!-- card -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h5 class="card-title text-center">DATOS DEL CENSADO: {{ $registered->nombre .' '. $registered->apellido }}</h5>
+                        <h5 class="card-title text-center">DATOS DEL CENSADO: {{ $registered->nombre .' '. $registered->apellido . ' / ' . 'N° Legajo: ' . $registered->legajo }}</h5>
                     </div>
 
                     <!-- inicio formulario -->
@@ -388,6 +388,7 @@
                                         <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                             <thead>
                                                 @if (empty($tutors))
+                                                @else
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 170px;">Apellido y Nombre</th>
                                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 219px;">D.N.I.</th>
@@ -426,23 +427,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-sm-12 col-md-5">
-                                        <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Mostrando 1 de 10 de 57 registros
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-7">
-                                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
+                         <!-- footer del card con boton -->
+                         <div class="modal-footer justify-content-between">
+                            <a href="{{ route('censado.index') }}" class="btn btn-primary">Volver</a>
+                        </div>
                 </div>
             </div>
         </div>

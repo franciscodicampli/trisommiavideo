@@ -35,6 +35,7 @@ class CreateRegisteredsTable extends Migration
             $table->unsignedBigInteger('obrasocial_id');
             $table->string('observacion');
             $table->string('numerolegajo');
+            $table->string('legajo');
             $table->timestamps();
 
             $table->foreign('localidad_id')->references('id')->on('locations');

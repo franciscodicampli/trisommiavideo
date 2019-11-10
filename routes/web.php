@@ -81,7 +81,7 @@ Route::resource('censado', 'Admin\RegisteredsController');
 Route::resource('tutor', 'Admin\TutorsController');
 
 //Ruta para ver tutor y volver al show del censado
-Route::get('tutor/{tutor}/{censado}', 'Admin\TutorsController@show')->name('tutor.ver');
+Route::get('tutor/{tutor}/{censado}', 'Admin\TutorsController@verTutor')->name('tutor.ver');
 
 //Ruta para eliminar el tutor de un censado, pero no borra el tutor.
 Route::get('censado/{tutor}/{censado}', 'Admin\TutorsController@eliminarTutor')->name('tutor.eliminar');
@@ -93,22 +93,18 @@ Route::post('censado/tutor', 'Admin\TutorsController@asignarTutorACensado')->nam
 Route::resource('voluntario', 'Admin\VolunteersController');
 
 
-// Route::get('listarcensado', function () {
-//     return view('admin.censo.listarcensado');
-// });
-
-// Route::get('creartutor', function () {
-//     return view('admin.censo.creartutor');
-// });
-
-// Route::get('listartutor', function () {
-//     return view('admin.censo.listartutor');
-// });
-
-
 
 Auth::routes();
 
 Route::resource('pensiones', 'Admin\PensionsController');
 Route::resource('obrassociales', 'Admin\HealthinsurancesController');
 Route::post('buscar', 'Admin\PensionsController@buscar')->name('buscar');
+
+Route::post('buscarCensado', 'Admin\RegisteredsController@buscarCensadoLegajo')->name('buscar.censado');
+
+
+//ruta para exportar censados a pdf
+Route::get('exportar-censados-pdf', 'Admin\RegisteredsController@exportarPdf')->name('exportar.censado');
+
+//ruta para exportar a pdf ficha del censado
+Route::get('exportar-ficha-censado/{id}', 'Admin\RegisteredsController@exportarFicha')->name('exportar.ficha');
