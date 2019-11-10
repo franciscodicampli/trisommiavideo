@@ -5,7 +5,6 @@
         "This file is @generated automatically"
     ],
     "content-hash": "3e64a1229cc86379368f9a8df68ed524",
-    // "content-hash": "ece4fd59c06b6c3d6152e6d01cc8361c",
     "packages": [
         {
             "name": "awssat/laravel-visits",
