@@ -244,7 +244,7 @@ class RegisteredsController extends Controller
 
         $censado->delete();
 
-        //toastr()->success('Se ha eliminado el censado correctamente');
+        toastr()->success('Se ha eliminado el censado correctamente');
 
         return back();
     }

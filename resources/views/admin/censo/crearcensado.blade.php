@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 @section('main-content')
 <div class="content-wrapper">
-        <div class="container">
+    <div class="container">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <!-- card -->
                             <div class="card card-primary">
                                 <div class="card-header">
@@ -329,7 +329,7 @@
                                                                         <i class="far fa-id-card"></i>
                                                                     </span>
                                                                 </div>
-                                                                <select class="custom-select" id="" name="obrasocial_id">
+                                                                <select class="custom-select select2-blue" id="" name="obrasocial_id">
                                                                         <option selected>Seleccione una obra social</option>
                                                                         @foreach ($healthinsurances as $healthinsurance)
                                                                            <option value="{{ $healthinsurance->id }}">{{ $healthinsurance->obrasocial }}</option>
@@ -415,9 +415,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
+    </div>
 </div>
-
-
-
 @endsection

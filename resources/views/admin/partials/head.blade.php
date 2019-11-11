@@ -6,6 +6,8 @@
 <title>Trisomia 21 VA | Panel de Administración</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{-- app --}}
+<script src="{{asset ('css/app.css')}}"></script>
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{ asset('dashboard/plugins/fontawesome-free/css/all.min.css') }}">
 <!-- Ionicons -->

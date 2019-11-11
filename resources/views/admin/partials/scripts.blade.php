@@ -1,3 +1,5 @@
+{{-- app --}}
+<script src="{{asset ('js/app.js')}}"></script>
 <!-- jQuery -->
 <script src="{{ asset('dashboard/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -28,9 +30,18 @@
 <script src="{{ asset('dashboard/plugins/bootstrap-fileinput/js/fileinput.min.js') }}"></script>
 <script src="{{ asset('dashboard/plugins/bootstrap-fileinput/js/locales/es.js') }}"></script>
 <script src="{{ asset('dashboard/plugins/bootstrap-fileinput/themes/fas/theme.min.js') }}"></script>
-<!-- Toastr -->
-<script src="{{ asset('dashboard/plugins/Toastr/toastr.min.js') }}"></script>
+{{-- <!-- Toastr -->
+<script src="{{ asset('dashboard/plugins/Toastr/toastr.min.js') }}"></script> --}}
 <!-- Scripts personalizados -->
 <script src="{{ asset('dashboard/dist/js/custom.js') }}"></script>
 <!-- Select2 js -->
 <script src="{{ asset('dashboard/plugins/select2/js/select2.js') }}"></script>
+{{-- <!-- Toastr -->
+<script src="{{ asset('dashboard/plugins/Toastr/toastr.min.js') }}"></script> --}}
+<script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+
+    {!! toastr()->render() !!}

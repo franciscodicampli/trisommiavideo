@@ -13,7 +13,7 @@ class VolunteersController extends Controller
     public function index()
     {
         $voluntarios = Volunteer::all();
-        return view('admin.voluntario.listarvoluntario', compact('voluntarios'));
+        return view('admin.voluntario.index', compact('voluntarios'));
     }
 
 
@@ -70,11 +70,6 @@ class VolunteersController extends Controller
     {
         $voluntario = Volunteer::find($id);
 
-<<<<<<< HEAD
-        $voluntario = new Volunteer();
-
-=======
->>>>>>> 1b0842a8b6217b787a2d915e1b86e45dd856467d
         $voluntario->nombre = $request->nombre;
         $voluntario->apellido = $request->apellido;
         $voluntario->dni = $request->dni;
