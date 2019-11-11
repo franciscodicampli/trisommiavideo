@@ -14,7 +14,7 @@ class HealthinsurancesController extends Controller
 
     public function index()
     {
-        $obrassociales = Healthinsurance::all();
+        $obrassociales = Healthinsurance::paginate(10);
         return view('admin.obrassociales.index', compact('obrassociales'));
     }
 
@@ -26,10 +26,7 @@ class HealthinsurancesController extends Controller
     public function store(StoreHealthinsurance $request)
     {
         $validated = $request->validated();
-<<<<<<< HEAD
 
-=======
->>>>>>> 1b0842a8b6217b787a2d915e1b86e45dd856467d
         $obrasocial = Healthinsurance::create($request->all());
         return redirect()->route('obrassociales.index');
     }

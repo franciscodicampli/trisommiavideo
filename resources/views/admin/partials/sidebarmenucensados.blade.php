@@ -64,13 +64,13 @@
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a href="#" class="nav-link">
+      <a href="{{ route('voluntario.create') }}" class="nav-link">
         <i class="fa fa-plus nav-icon"></i>
         <p>Nuevo voluntario</p>
       </a>
     </li>
     <li class="nav-item">
-      <a href="#" class="nav-link">
+      <a href="{{ route('voluntario.index') }}" class="nav-link">
         <i class="fa fa-list nav-icon"></i>
         <p>Ver todos</p>
       </a>
@@ -82,7 +82,7 @@
 
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('obrassociales.index') }}" class="nav-link">
             <i class="fas fa-stethoscope nav-icon"></i>
           <p>Obras Sociales</p>
         </a>

@@ -12,7 +12,7 @@ class VolunteersController extends Controller
 
     public function index()
     {
-        $voluntarios = Volunteer::all();
+        $voluntarios = Volunteer::paginate(10);
         return view('admin.voluntario.index', compact('voluntarios'));
     }
 
@@ -21,7 +21,7 @@ class VolunteersController extends Controller
     {
         $localidades = Location::all();
 
-        return view('admin.voluntario.crearvoluntario', compact('localidades'));
+        return view('admin.voluntario.create', compact('localidades'));
     }
 
 
@@ -54,7 +54,7 @@ class VolunteersController extends Controller
         $voluntario = Volunteer::find($id);
         $localidades = Location::all();
 
-        return view('admin.voluntario.vervoluntario', compact('voluntario', 'localidades'));
+        return view('admin.voluntario.show', compact('voluntario', 'localidades'));
     }
 
 
@@ -62,7 +62,7 @@ class VolunteersController extends Controller
     {
         $voluntario = Volunteer::find($id);
         $localidades = Location::all();
-        return view('admin.voluntario.editarvoluntario', compact('voluntario', 'localidades'));
+        return view('admin.voluntario.edit', compact('voluntario', 'localidades'));
     }
 
 
